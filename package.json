@@ -4,6 +4,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^17.0.39",
+    "@types/recursive-readdir": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "eslint": "^8.0.1",
@@ -22,6 +23,7 @@
     "colorette": "^2.0.17",
     "discord.js": "^13.7.0",
     "dotenv": "^16.0.1",
+    "readdirp": "^3.6.0",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.7.0"
   }

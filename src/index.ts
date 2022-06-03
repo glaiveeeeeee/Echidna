@@ -36,6 +36,16 @@ try {
     events.set(event.event, event)
     logger.info(`Registered Event: ${event.event}`)
   }
+
+  // Command Handler
+  const commandFiles = readdirp(fileURLToPath(new URL('./commands', import.meta.url)), {
+    fileFilter: '*.js'
+  })
+  for await (const commandFile of commandFiles) {
+    const command = container.resolve<Command>((await import(pathToFileURL(commandFile.fullPath).href)).default)
+    commands.set(command.name, command)
+    logger.info(`Registered Command: ${command.name}`)
+  }
 } catch (error: any) {
   if (error instanceof Error) {
     logger.error(error.stack)

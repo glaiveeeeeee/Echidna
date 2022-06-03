@@ -13,7 +13,7 @@ export default class implements Event {
       @inject(LoggerKey) public readonly logger: Logger) {}
 
   run () {
-    this.client.on('ready', () => {
+    this.client.on(this.event, () => {
       this.logger.announce('Client is online.')
     })
   }

@@ -15,6 +15,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "eol-last": "off"
+        "eol-last": "off",
+        "switch-colon-spacing": "error"
     }
 }

@@ -21,13 +21,13 @@ export default class implements Event {
       const cmd = this.commands.get(interaction.commandName)
       if (!cmd) return
       try {
-        cmd.run(interaction, interaction.options.data)
+        await cmd.run(interaction, interaction.options.data)
       } catch (error) {
         if (error instanceof Error) {
           this.logger.error(error.stack)
           if (!interaction.deferred && !interaction.replied) {
             await interaction.deferReply({ ephemeral: true })
-            interaction.editReply({ content: `⚠️ An error occurred while executing this command: \`${error.message}\`\nCheck the console for more details.` })
+            await interaction.editReply({ content: `⚠️ An error occurred while executing this command: \`${error.message}\`\nCheck the console for more details.` })
           }
         }
       }
